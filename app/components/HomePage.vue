@@ -129,7 +129,7 @@
                 </p>
 
                 <!-- WEDGE 1 -->
-                <div class="mb-10">
+                <div class="mb-5">
                     <h3 class="text-lg font-bold mb-3">
                         Scenario A: Base Royalty (5%), Fixed AISC Costs
                     </h3>
@@ -148,7 +148,7 @@
                 </div>
 
                 <!-- WEDGE 2 -->
-                <div class="mb-10">
+                <div class="mb-5">
                     <h3 class="text-lgs font-bold mb-3">
                         Scenario B: Higher Base Royalty (10%), Fixed AISC Costs
                     </h3>
@@ -167,7 +167,7 @@
                 </div>
 
                 <!-- COST BASE -->
-                <div class="prose prose-lg max-w-none mb-10">
+                <div class="prose prose-lg max-w-none mb-5">
                     <p class="mb-4">
                         Cost Base: All-In Sustaining Costs (AISC). However,
                         royalty rates do not exist in a vacuum. The All-In
@@ -180,7 +180,7 @@
                 </div>
 
                 <!-- WEDGE 3 -->
-                <div class="mb-10">
+                <div class="mb-5">
                     <h3 class="text-lg font-bold mb-3">
                         Scenario C: Base Royalty (5%), Variable AISC Costs
                     </h3>
@@ -197,7 +197,7 @@
                 </div>
 
                 <!-- WEDGE 4 -->
-                <div class="mb-10">
+                <div class="mb-5">
                     <h3 class="text-lg font-bold mb-3">
                         Scenario D: Higher Base Royalty (10%), Variable AISC
                         Costs
@@ -215,7 +215,7 @@
                 </div>
 
                 <!-- CLIFF EFFECT -->
-                <div class="prose prose-lg max-w-none mb-10">
+                <div class="prose prose-lg max-w-none mb-5">
                     <p class="mb-4">
                         Solving the "Cliff Effect" with smoothing. A critical
                         flaw in the bracket or step approach to royalty design
