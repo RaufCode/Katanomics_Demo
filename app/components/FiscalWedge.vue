@@ -201,7 +201,7 @@
         class="max-w-5xl mx-auto p-6 bg-gray-50 rounded-xl font-sans text-gray-800"
     >
         <!-- Header -->
-        <div class="mb-12 text-center">
+        <div class="mb-6 text-center">
             <h2 class="text-3xl font-extrabold text-gray-900 mb-4">
                 Lithium Royalty: The "Cliff Effect"
             </h2>
@@ -216,10 +216,10 @@
 
         <!-- MAIN PANEL -->
         <section
-            class="bg-white rounded-xl shadow-lg border border-gray-200 mb-12"
+            class="bg-white rounded-xl shadow-lg border border-gray-200 mb-6"
         >
             <div class="p-6 md:p-8">
-                <div class="flex flex-col md:flex-row gap-8 mb-12">
+                <div class="flex flex-col md:flex-row gap-8 mb-6">
                     <!-- Volume -->
                     <div class="flex-1">
                         <label
@@ -291,7 +291,7 @@
                 </div>
 
                 <!-- Price Slider -->
-                <div class="mb-12">
+                <div class="mb-6">
                     <div class="flex justify-between items-end mb-4">
                         <label
                             class="text-sm font-bold text-gray-700 uppercase tracking-wide"
