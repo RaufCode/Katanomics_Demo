@@ -202,7 +202,7 @@
     >
         <!-- Header -->
         <div class="mb-6 text-center">
-            <h2 class="text-3xl font-extrabold text-gray-900 mb-4">
+            <h2 class="font-bold text-gray-900 mb-4">
                 Lithium Royalty: The "Cliff Effect"
             </h2>
 

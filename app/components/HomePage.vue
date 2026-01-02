@@ -105,7 +105,7 @@
 
             <!-- INTERACTIVE ANALYSIS -->
             <section class="mb-6">
-                <h2 class="text-3xl font-bold text-gray-900 mb-3">
+                <h2 class="text-lg font-bold text-gray-900 mb-3">
                     Interactive Fiscal Analysis: Deconstructing the Government
                     Take
                 </h2>
@@ -130,7 +130,7 @@
 
                 <!-- WEDGE 1 -->
                 <div class="mb-10">
-                    <h3 class="text-xl font-bold mb-3">
+                    <h3 class="text-lg font-bold mb-3">
                         Scenario A: Base Royalty (5%), Fixed AISC Costs
                     </h3>
                     <div
@@ -149,7 +149,7 @@
 
                 <!-- WEDGE 2 -->
                 <div class="mb-10">
-                    <h3 class="text-xl font-bold mb-3">
+                    <h3 class="text-lgs font-bold mb-3">
                         Scenario B: Higher Base Royalty (10%), Fixed AISC Costs
                     </h3>
                     <div
@@ -181,7 +181,7 @@
 
                 <!-- WEDGE 3 -->
                 <div class="mb-10">
-                    <h3 class="text-xl font-bold mb-3">
+                    <h3 class="text-lg font-bold mb-3">
                         Scenario C: Base Royalty (5%), Variable AISC Costs
                     </h3>
                     <div
@@ -198,7 +198,7 @@
 
                 <!-- WEDGE 4 -->
                 <div class="mb-10">
-                    <h3 class="text-xl font-bold mb-3">
+                    <h3 class="text-lg font-bold mb-3">
                         Scenario D: Higher Base Royalty (10%), Variable AISC
                         Costs
                     </h3>
@@ -237,7 +237,7 @@
 
                 <!-- WEDGE 5 -->
                 <div>
-                    <h3 class="text-xl font-bold mb-3">
+                    <h3 class="text-lg font-bold mb-3">
                         Scenario E: Smoothed Royalty, Fixed AISC Costs
                     </h3>
                     <div
