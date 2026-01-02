@@ -17,11 +17,11 @@
 
             <!-- INTRO -->
             <section class="prose prose-lg max-w-none mb-6">
-                <h2 class="font-bold text-gray-900 mb-4">
+                <h2 class="font-bold text-gray-900 mb-2">
                     Introduction: The Myth of Abundance and the Reality of Data
                 </h2>
 
-                <p class="mb-4">
+                <p class="mb-2">
                     As concerns over global warming force a shift to battery
                     technologies, a new class of
                     <strong>critical minerals</strong> such as lithium, cobalt,
@@ -30,7 +30,7 @@
                     this transition is a make-or-break moment.
                 </p>
 
-                <p class="mb-4">
+                <p class="mb-2">
                     Yet, the region is locked into a pernicious
                     <strong>“myth of 30%”</strong>, which suggests that the
                     continent holds a third of the world's resources and needs
@@ -40,7 +40,7 @@
                     transformation.
                 </p>
 
-                <p class="mb-4">
+                <p class="mb-2">
                     This abundance mindset obscures a precarious reality: the
                     continent is <em>data-poor</em> in an era where geological
                     intelligence is the primary currency of exploration. African
@@ -50,7 +50,7 @@
                     African data to de-risk investments elsewhere.
                 </p>
 
-                <p class="mb-4">
+                <p class="mb-2">
                     Furthermore, the fiscal instruments used to capture value,
                     static royalties and manual tax assessments, suffer from
                     <strong>Katanomics</strong>, a structural fracture between
@@ -63,11 +63,11 @@
 
             <!-- CASE STUDY -->
             <section class="prose prose-lg max-w-none mb-6">
-                <h2 class="font-bold mb-4">
+                <h2 class="font-bold mb-2">
                     The Ewoyaa Case: Katanomics in Action
                 </h2>
 
-                <p class="mb-4">
+                <p class="mb-2">
                     The Ewoyaa Lithium Project in Ghana serves as a prime case
                     study. Unlike the established gold sector, lithium is a
                     greenfield regulatory space. The political narrative of
@@ -77,7 +77,7 @@
                     production.
                 </p>
 
-                <p class="mb-4">
+                <p class="mb-2">
                     The state’s initial negotiation for a fixed 10% royalty was
                     jettisoned without any credible account, despite vibrant
                     political debate, a classic symptom of the katanomic
@@ -85,7 +85,7 @@
                     policy accountability.
                 </p>
 
-                <p class="mb-4">
+                <p class="mb-2">
                     The subsequent renegotiated 5% base royalty rate failed to
                     account for extreme price volatility (lithium prices swung
                     from $500 to $6,000 per ton in two years) or the metal’s
@@ -93,7 +93,7 @@
                     with civil uproar.
                 </p>
 
-                <p class="mb-4">
+                <p class="mb-2">
                     Eventually, a sliding-scale mechanism was introduced. While
                     pragmatic, this shift was presented without serious fiscal
                     modelling, betraying the need for rigorous, data-backed
@@ -110,7 +110,7 @@
                     Take
                 </h2>
 
-                <p class="text-lg text-gray-700 mb-4 max-w-3xl">
+                <p class="text-lg text-gray-700 mb-2 max-w-3xl">
                     De-katanomisation means understanding the true impact and
                     import of fiscal regime design and moving beyond headline
                     numbers to model the Effective Government Take under various
@@ -168,7 +168,7 @@
 
                 <!-- COST BASE -->
                 <div class="prose prose-lg max-w-none mb-5">
-                    <p class="mb-4">
+                    <p class="mb-2">
                         Cost Base: All-In Sustaining Costs (AISC). However,
                         royalty rates do not exist in a vacuum. The All-In
                         Sustaining Cost determines project profitability. In an
@@ -216,7 +216,7 @@
 
                 <!-- CLIFF EFFECT -->
                 <div class="prose prose-lg max-w-none mb-5">
-                    <p class="mb-4">
+                    <p class="mb-2">
                         Solving the "Cliff Effect" with smoothing. A critical
                         flaw in the bracket or step approach to royalty design
                         adopted by Ghana’s Lands Ministry is the cliff effect.
@@ -225,7 +225,7 @@
                         it creates a perverse incentive.
                     </p>
 
-                    <p class="mb-4">
+                    <p class="mb-2">
                         To eliminate this, the remedy is a smoothed sliding
                         scale. Instead of steps, the royalty rate is calculated
                         using a continuous interpolation formula. This ensures
@@ -263,11 +263,11 @@
 
             <!-- DIGITAL GAZETTE -->
             <section class="prose prose-lg max-w-none mb-6">
-                <h2 class="font-bold mb-4">
+                <h2 class="font-bold mb-2">
                     Operationalizing Policy: The Digital Gazette
                 </h2>
 
-                <p class="mb-4">
+                <p class="mb-2">
                     But even the best mathematical model is useless if the
                     administrative machinery cannot implement it. In a katanomic
                     state, complex rules are hard to enforce manually due to
@@ -276,7 +276,7 @@
                     into computable regulatory logic.
                 </p>
 
-                <p class="mb-4">
+                <p class="mb-2">
                     In this architecture, the Minerals Commission publishes
                     fiscal logic in standardized, version-controlled code. This
                     creates an immutable audit trail and allows critical policy
@@ -290,18 +290,18 @@
 
             <!-- DATA SOVEREIGNTY -->
             <section class="prose prose-lg max-w-none mb-6">
-                <h2 class="font-bold mb-4">
+                <h2 class="font-bold mb-2">
                     Data Sovereignty and the Enterprise Marketplace
                 </h2>
 
-                <p class="mb-4">
+                <p class="mb-2">
                     A crucial component of this infrastructure is the National
                     Data Cloud. By mandating that exploration data be uploaded
                     in machine-readable formats with QA and QC metadata, the
                     state asserts ownership over its geological IP.
                 </p>
 
-                <p class="mb-4">
+                <p class="mb-2">
                     These technologies also enable an enterprise mineral data
                     marketplace. In this ecosystem, private and B2B royalties on
                     e-cadastral data used for successful exploration can be
@@ -314,17 +314,17 @@
 
             <!-- FELDSPAR -->
             <section class="prose prose-lg max-w-none mb-6">
-                <h2 class="font-bold mb-4">
+                <h2 class="font-bold mb-2">
                     The Feldspar Pilot: A Sandbox for Reform
                 </h2>
 
-                <p class="mb-4">
+                <p class="mb-2">
                     Harmonising these advanced systems across West Africa is a
                     heavy political lift. To build policy stamina, we propose a
                     low-stakes sandbox using feldspar.
                 </p>
 
-                <p class="mb-4">
+                <p class="mb-2">
                     Feldspar is a byproduct of lithium mining and is vital for
                     the region’s ceramic tile industry. Because it is not a
                     security mineral with high geopolitical stakes, it offers an
@@ -337,25 +337,25 @@
 
             <!-- CONCLUSION -->
             <section class="prose prose-lg max-w-none">
-                <h2 class="font-bold mb-4">
+                <h2 class="font-bold mb-2">
                     Conclusion: From Resource Nationalism to Smart Sovereignty
                 </h2>
 
-                <p class="mb-4">
+                <p class="mb-2">
                     The transition from the old deal to the new deal at Ewoyaa
                     is a microcosm of Africa’s broader struggle. While recent
                     regulations show pragmatism, they remain vulnerable to the
                     structural flaws of analogue governance.
                 </p>
 
-                <p class="mb-4">
+                <p class="mb-2">
                     By adopting DPI modules such as smoothing algorithms,
                     Digital Gazettes, and sovereign data marketplaces, West
                     African states can transcend resource nationalism and
                     achieve smart sovereignty.
                 </p>
 
-                <p class="mb-4">
+                <p class="mb-2">
                     The strategic game is not won by shouting louder at the
                     negotiating table, but by having the digital intelligence to
                     know the odds, own the data, and automate value capture.
@@ -364,9 +364,12 @@
                     vehicle battery value chain of the future.
                 </p>
 
-                <p class="font-semibold text-blue-700 underline cursor-pointer">
+                <NuxtLink
+                    to=""
+                    class="font-semibold text-blue-700 underline cursor-pointer"
+                >
                     Read the full whitepaper here:
-                </p>
+                </NuxtLink>
             </section>
         </div>
     </div>
