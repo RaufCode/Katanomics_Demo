@@ -197,9 +197,7 @@
 </script>
 
 <template>
-    <div
-        class="max-w-5xl mx-auto bg-gray-50 rounded-xl font-sans text-gray-800"
-    >
+    <div class="max-w-5xl mx-auto rounded-xl font-sans text-gray-800">
         <!-- Header -->
         <div class="mb-6 text-center">
             <h2 class="font-bold text-gray-900 mb-4">
