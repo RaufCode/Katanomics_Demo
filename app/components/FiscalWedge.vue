@@ -198,7 +198,7 @@
 
 <template>
     <div
-        class="max-w-5xl mx-auto p-6 bg-gray-50 rounded-xl font-sans text-gray-800"
+        class="max-w-5xl mx-auto bg-gray-50 rounded-xl font-sans text-gray-800"
     >
         <!-- Header -->
         <div class="mb-6 text-center">
@@ -367,7 +367,7 @@
                                 Govt Take
                             </span>
                             <span
-                                class="block text-2xl md:text-3xl font-black text-green-700 tracking-tight"
+                                class="block text-lg md:text-3xl font-black text-green-700 tracking-tight"
                             >
                                 {{ formatMillions(item.data.govTotal) }}
                             </span>
@@ -386,7 +386,7 @@
                                 Company Net
                             </span>
                             <span
-                                class="block text-2xl md:text-3xl font-black tracking-tight"
+                                class="block text-lg md:text-3xl font-black tracking-tight"
                                 :class="
                                     item.data.compTotal < 0
                                         ? 'text-red-600'
