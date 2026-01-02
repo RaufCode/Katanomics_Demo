@@ -352,7 +352,7 @@
                     </div>
                 </div>
 
-                <div class="p-0 md:p-6">
+                <div class="p-3 md:p-6">
                     <!-- Big Numbers -->
                     <div class="grid grid-cols-2 gap-5 md:gap-8 mb-6">
                         <!-- Govt -->
