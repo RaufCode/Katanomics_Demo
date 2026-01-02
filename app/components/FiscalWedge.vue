@@ -12,7 +12,7 @@
 
         aiscMode: {
             type: String,
-            default: "fixed", // 'fixed' | 'variable'
+            default: "fixed",
         },
 
         fixedAisc: {
@@ -42,7 +42,7 @@
     });
 
     /* =======================
-   LOCAL STATE (User-controlled)
+   LOCAL STATE
 ======================= */
     const price = ref(props.price);
     const volume = ref(props.volume);
@@ -57,15 +57,11 @@
     const COMP_EQUITY = 0.81;
 
     /* =======================
-   EFFECTIVE AISC (KEY FIX)
+   EFFECTIVE AISC
 ======================= */
     const effectiveAisc = computed(() => {
-        // FIXED COST SCENARIOS (A / B)
-        if (props.aiscMode === "fixed") {
-            return props.fixedAisc;
-        }
+        if (props.aiscMode === "fixed") return props.fixedAisc;
 
-        // VARIABLE COST SCENARIOS (C / D)
         if (props.aiscMode === "variable") {
             if (volume.value < 300_000) return 700;
             if (volume.value < 1_000_000) return 645.7;
@@ -105,7 +101,6 @@
         const gsl = lithiumPrice * GSL_RATE;
 
         const taxableIncome = Math.max(0, lithiumPrice - aisc - royalty);
-
         const corpTax = taxableIncome * CIT_RATE;
         const postTaxProfit = taxableIncome - corpTax - gsl;
 
@@ -128,12 +123,11 @@
     };
 
     /* =======================
-   RESULTS (Single Scenario)
+   RESULTS
 ======================= */
     const results = computed(() => {
         const res = calculateSplit(price.value, effectiveAisc.value);
 
-        // scale to annual values
         res.govTotal *= volume.value;
         res.compTotal *= volume.value;
 
@@ -156,7 +150,7 @@
     });
 
     /* =======================
-   CLIFF EFFECT ANALYSIS
+   CLIFF EFFECT
 ======================= */
     const cliffAnalysis = computed(() => {
         const thresholds = [
@@ -207,11 +201,12 @@
         class="max-w-5xl mx-auto p-6 bg-gray-50 rounded-xl font-sans text-gray-800"
     >
         <!-- Header -->
-        <div class="mb-8 text-center">
-            <h2 class="text-3xl font-extrabold text-gray-900 mb-3">
+        <div class="mb-12 text-center">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-4">
                 Lithium Royalty: The "Cliff Effect"
             </h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">
+
+            <p class="text-gray-600 max-w-2xl mx-auto mb-4">
                 Visualize how fixed royalty thresholds create perverse
                 incentives to "game" the price. Compare the
                 <strong>Step (Cliff)</strong> model vs. a
@@ -219,372 +214,118 @@
             </p>
         </div>
 
-        <!-- Main Control Panel -->
-        <div
-            class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden mb-8"
+        <!-- MAIN PANEL -->
+        <section
+            class="bg-white rounded-xl shadow-lg border border-gray-200 mb-12"
         >
-            <div class="p-6 md:p-8 bg-white">
-                <!-- Top Row: Volume & Algorithm -->
-                <div class="flex flex-col md:flex-row gap-8 mb-8">
-                    <!-- Volume Input -->
+            <div class="p-6 md:p-8">
+                <div class="flex flex-col md:flex-row gap-8 mb-12">
+                    <!-- Volume -->
                     <div class="flex-1">
                         <label
                             class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide"
                         >
                             Annual Production (Tonnes)
                         </label>
-                        <div class="relative rounded-md shadow-sm">
-                            <input
-                                type="number"
-                                v-model.number="volume"
-                                class="block w-full text-lg border-gray-300 rounded-lg pl-4 pr-12 py-3 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 border"
-                            />
-                            <div
-                                class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none"
-                            >
-                                <span class="text-gray-500 font-medium">t</span>
-                            </div>
-                        </div>
-                        <p class="text-xs text-gray-400 mt-2">
+
+                        <input
+                            type="number"
+                            v-model.number="volume"
+                            class="block w-full text-lg border-gray-300 rounded-lg px-4 py-3 bg-gray-50 border focus:ring-blue-500 focus:border-blue-500"
+                        />
+
+                        <p class="text-xs text-gray-400 mt-2 mb-4">
                             Adjust to see impact on annual revenues (e.g.,
                             500,000t).
                         </p>
                     </div>
 
-                    <!-- Algorithm Toggle -->
+                    <!-- Toggle -->
                     <div class="flex-1">
                         <label
                             class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide"
                         >
                             Royalty Regime
                         </label>
-                        <div class="flex bg-gray-100 p-1 rounded-lg">
+
+                        <div class="flex bg-gray-100 p-1 rounded-lg mb-4">
                             <button
                                 @click="useSmoothing = false"
-                                class="flex-1 py-3 px-4 rounded-md text-sm font-bold transition-all duration-200 flex items-center justify-center gap-2"
+                                class="flex-1 py-3 px-4 rounded-md text-sm font-bold transition"
                                 :class="
                                     !useSmoothing
-                                        ? 'bg-white text-red-600 shadow-md ring-1 ring-black/5'
-                                        : 'text-gray-500 hover:text-gray-700'
+                                        ? 'bg-white text-red-600 shadow'
+                                        : 'text-gray-500'
                                 "
                             >
-                                <!-- Icon: Bar Chart -->
-                                <svg
-                                    xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)"
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                >
-                                    <line
-                                        x1="18"
-                                        y1="20"
-                                        x2="18"
-                                        y2="10"
-                                    ></line>
-                                    <line x1="12" y1="20" x2="12" y2="4"></line>
-                                    <line x1="6" y1="20" x2="6" y2="14"></line>
-                                </svg>
                                 Step (Cliff)
                             </button>
+
                             <button
                                 @click="useSmoothing = true"
-                                class="flex-1 py-3 px-4 rounded-md text-sm font-bold transition-all duration-200 flex items-center justify-center gap-2"
+                                class="flex-1 py-3 px-4 rounded-md text-sm font-bold transition"
                                 :class="
                                     useSmoothing
-                                        ? 'bg-white text-green-600 shadow-md ring-1 ring-black/5'
-                                        : 'text-gray-500 hover:text-gray-700'
+                                        ? 'bg-white text-green-600 shadow'
+                                        : 'text-gray-500'
                                 "
                             >
-                                <!-- Icon: Activity -->
-                                <svg
-                                    xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)"
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                >
-                                    <polyline
-                                        points="22 12 18 12 15 21 9 3 6 12 2 12"
-                                    ></polyline>
-                                </svg>
                                 Smoothed
                             </button>
                         </div>
+
                         <p
-                            class="text-xs text-gray-400 mt-2 text-center"
                             v-if="!useSmoothing"
+                            class="text-xs text-gray-400 text-center mb-4"
                         >
-                            Current Ghana Model (Fixed Bands)
+                            Current Ghana model (fixed bands)
                         </p>
+
                         <p
-                            class="text-xs text-gray-400 mt-2 text-center"
                             v-else
+                            class="text-xs text-gray-400 text-center mb-4"
                         >
-                            Proposed Linear Interpolation
+                            Proposed linear interpolation
                         </p>
                     </div>
                 </div>
 
                 <!-- Price Slider -->
-                <div class="mb-2">
+                <div class="mb-12">
                     <div class="flex justify-between items-end mb-4">
                         <label
                             class="text-sm font-bold text-gray-700 uppercase tracking-wide"
-                            >Market Price (USD/t)</label
                         >
-                        <div
-                            class="text-3xl font-black text-blue-600 tracking-tight"
-                        >
+                            Market Price (USD/t)
+                        </label>
+
+                        <div class="text-3xl font-black text-blue-600">
                             ${{ formatNum(price) }}
                         </div>
                     </div>
+
                     <input
                         type="range"
                         min="1000"
                         max="4000"
                         step="10"
                         v-model.number="price"
-                        class="w-full h-4 bg-gray-200 rounded-full appearance-none cursor-pointer accent-blue-600 hover:accent-blue-700 transition-all"
+                        class="w-full h-4 bg-gray-200 rounded-full appearance-none cursor-pointer accent-blue-600"
                     />
+
                     <div
                         class="flex justify-between text-xs font-medium text-gray-400 mt-2"
                     >
                         <span>$1,000</span>
-                        <span class="pl-8">$2,500 (7%→10%)</span>
-                        <span class="pl-8">$3,000 (10%→12%)</span>
+                        <span>$2,500</span>
+                        <span>$3,000</span>
                         <span>$4,000</span>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- CLIFF ANALYZER (Only shows in Step mode near thresholds) -->
-            <div
-                v-if="!useSmoothing && cliffAnalysis.isNear"
-                class="border-t border-red-100 bg-red-50/50 p-6 md:p-8 rounded-b-xl mb-8"
-            >
-                <div class="flex items-start gap-4">
-                    <div class="bg-red-100 p-3 rounded-full hidden md:block">
-                        <!-- Icon: Alert Triangle -->
-                        <svg
-                            class="w-6 h-6 text-red-600"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                            <path
-                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
-                            ></path>
-                            <line x1="12" y1="9" x2="12" y2="13"></line>
-                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                        </svg>
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="text-lg font-bold text-red-800 mb-1">
-                            ⚠️ The Cliff Effect Detected
-                        </h3>
-                        <p class="text-red-700 mb-4 text-sm leading-relaxed">
-                            At the current price of <strong>${{ price }}</strong
-                            >, the royalty rate is
-                            <strong
-                                >{{
-                                    (cliffAnalysis.highRate * 100).toFixed(0)
-                                }}%</strong
-                            >. By artificially lowering the price to
-                            <strong>${{ cliffAnalysis.threshold }}</strong
-                            >, the rate drops to
-                            <strong
-                                >{{
-                                    (cliffAnalysis.lowRate * 100).toFixed(0)
-                                }}%</strong
-                            >. <br />See how "earning less" actually creates
-                            <strong>more profit</strong> for the company:
-                        </p>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <!-- High Price Scenario (Current) -->
-                            <div
-                                class="bg-white p-4 rounded-lg border border-red-200 shadow-sm opacity-75"
-                            >
-                                <div
-                                    class="text-xs font-bold text-red-500 uppercase mb-2"
-                                >
-                                    Scenario A: Honest Pricing
-                                </div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-sm text-gray-600"
-                                        >Price:</span
-                                    >
-                                    <span class="font-bold text-gray-800"
-                                        >${{ price }}</span
-                                    >
-                                </div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-sm text-gray-600"
-                                        >Revenue:</span
-                                    >
-                                    <span class="font-medium text-gray-800">{{
-                                        formatMillions(price * volume)
-                                    }}</span>
-                                </div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-sm text-gray-600"
-                                        >Royalty ({{
-                                            (
-                                                cliffAnalysis.highRate * 100
-                                            ).toFixed(0)
-                                        }}%):</span
-                                    >
-                                    <span class="font-bold text-red-600">{{
-                                        formatMillions(
-                                            price *
-                                                volume *
-                                                cliffAnalysis.highRate
-                                        )
-                                    }}</span>
-                                </div>
-                                <div
-                                    class="mt-2 pt-2 border-t border-gray-100 flex justify-between"
-                                >
-                                    <span
-                                        class="text-sm font-bold text-gray-700"
-                                        >Net Profit:</span
-                                    >
-                                    <span class="font-bold text-gray-900">{{
-                                        formatMillions(
-                                            results[0].data.compTotal
-                                        )
-                                    }}</span>
-                                </div>
-                            </div>
-
-                            <!-- Low Price Scenario (Gaming) -->
-                            <div
-                                class="bg-white p-4 rounded-lg border-2 border-green-400 shadow-md relative overflow-hidden"
-                            >
-                                <div
-                                    class="absolute top-0 right-0 bg-green-400 text-white text-[10px] font-bold px-2 py-1"
-                                >
-                                    OPTIMIZED
-                                </div>
-                                <div
-                                    class="text-xs font-bold text-green-600 uppercase mb-2"
-                                >
-                                    Scenario B: "Gaming" the Price
-                                </div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-sm text-gray-600"
-                                        >Price:</span
-                                    >
-                                    <span class="font-bold text-gray-800"
-                                        >${{ cliffAnalysis.threshold }}</span
-                                    >
-                                </div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-sm text-gray-600"
-                                        >Revenue:</span
-                                    >
-                                    <span class="font-medium text-gray-500">{{
-                                        formatMillions(
-                                            cliffAnalysis.threshold * volume
-                                        )
-                                    }}</span>
-                                </div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-sm text-gray-600"
-                                        >Royalty ({{
-                                            (
-                                                cliffAnalysis.lowRate * 100
-                                            ).toFixed(0)
-                                        }}%):</span
-                                    >
-                                    <span class="font-bold text-green-600">{{
-                                        formatMillions(
-                                            cliffAnalysis.threshold *
-                                                volume *
-                                                cliffAnalysis.lowRate
-                                        )
-                                    }}</span>
-                                </div>
-                                <div
-                                    class="mt-2 pt-2 border-t border-gray-100 flex justify-between"
-                                >
-                                    <span
-                                        class="text-sm font-bold text-gray-700"
-                                        >Net Profit:</span
-                                    >
-                                    <span class="font-bold text-green-700">{{
-                                        formatMillions(
-                                            cliffAnalysis.gamingProfit
-                                        )
-                                    }}</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mt-4 text-center">
-                            <span
-                                class="inline-block bg-red-800 text-white text-sm font-bold px-4 py-2 rounded-full shadow-sm"
-                            >
-                                Incentive to Undersell:
-                                {{
-                                    formatMillions(
-                                        cliffAnalysis.gamingProfit -
-                                            results[0].data.compTotal
-                                    )
-                                }}
-                                Gain
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SMOOTHING BANNER -->
-            <div
-                v-if="useSmoothing"
-                class="mb-8 border-t border-green-100 bg-green-50/50 p-6 flex items-center gap-4 rounded-b-xl"
-            >
-                <div class="bg-green-100 p-2 rounded-full">
-                    <!-- Icon: Check/Activity -->
-                    <svg
-                        xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="text-green-600"
-                    >
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                </div>
-                <div>
-                    <h3 class="text-sm font-bold text-green-800">
-                        Smoothing Active
-                    </h3>
-                    <p class="text-sm text-green-700">
-                        Royalty scales linearly. Earning more revenue always
-                        equals more profit. No incentive to game.
-                    </p>
-                </div>
-            </div>
-        </div>
-
+        <!-- RESULTS -->
         <!-- Results Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div
@@ -616,28 +357,34 @@
                 <div class="p-6">
                     <!-- Big Numbers -->
                     <div class="grid grid-cols-2 gap-8 mb-6">
+                        <!-- Govt -->
                         <div
                             class="text-center p-4 bg-green-50 rounded-lg border border-green-100"
                         >
                             <span
-                                class="block text-green-800 text-xs font-bold uppercase tracking-wide mb-1"
-                                >Govt Take</span
+                                class="block text-xs font-bold uppercase tracking-wide text-gray-700 mb-1"
                             >
+                                Govt Take
+                            </span>
                             <span
                                 class="block text-2xl md:text-3xl font-black text-green-700 tracking-tight"
-                                >{{ formatMillions(item.data.govTotal) }}</span
                             >
-                            <span class="text-xs text-green-600/70"
-                                >Total Annual</span
-                            >
+                                {{ formatMillions(item.data.govTotal) }}
+                            </span>
+                            <span class="text-xs text-green-600/70">
+                                Total Annual
+                            </span>
                         </div>
+
+                        <!-- Company -->
                         <div
                             class="text-center p-4 bg-blue-50 rounded-lg border border-blue-100"
                         >
                             <span
-                                class="block text-blue-800 text-xs font-bold uppercase tracking-wide mb-1"
-                                >Company Net</span
+                                class="block text-xs font-bold uppercase tracking-wide text-gray-700 mb-1"
                             >
+                                Company Net
+                            </span>
                             <span
                                 class="block text-2xl md:text-3xl font-black tracking-tight"
                                 :class="
@@ -648,9 +395,9 @@
                             >
                                 {{ formatMillions(item.data.compTotal) }}
                             </span>
-                            <span class="text-xs text-blue-600/70"
-                                >Total Annual</span
-                            >
+                            <span class="text-xs text-blue-600/70">
+                                Total Annual
+                            </span>
                         </div>
                     </div>
 
@@ -671,13 +418,12 @@
                         <div
                             class="flex justify-between text-xs font-bold text-gray-500 mt-1"
                         >
-                            <span
-                                >Govt {{ item.data.govShare.toFixed(1) }}%</span
-                            >
-                            <span
-                                >Company
-                                {{ item.data.compShare.toFixed(1) }}%</span
-                            >
+                            <span>
+                                Govt {{ item.data.govShare.toFixed(1) }}%
+                            </span>
+                            <span>
+                                Company {{ item.data.compShare.toFixed(1) }}%
+                            </span>
                         </div>
                     </div>
                 </div>
