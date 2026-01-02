@@ -366,7 +366,7 @@
 
                 <NuxtLink
                     to=""
-                    class="font-semibold text-blue-700 underline cursor-pointer"
+                    class="font-normal text-blue-600 hover:underline cursor-pointer"
                 >
                     Read the full whitepaper here:
                 </NuxtLink>
